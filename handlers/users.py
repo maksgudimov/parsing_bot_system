@@ -86,6 +86,7 @@ async def choose_keyboard_start(callback: types.CallbackQuery, state: FSMContext
 
 
 async def choose_shop_keyboard(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
     await state.finish()
     shop_id = callback.data.split("_")[1]
     url = f"http://127.0.0.1:8000/api/products?shop_id={shop_id}"
